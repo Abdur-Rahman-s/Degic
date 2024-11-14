@@ -12,8 +12,8 @@ export default function Navbar() {
     const navItems = ["About", "Services", "Projects", "Contacts"];
     return (
         <header >
-            <div className='px-4 lg:px-0 py-3 text-[#000] border border-b-[#00000] shadow-[0px 4px 4px 0px rgba(0, 0, 0, 0.25)] '   >
-                <div className="container mx-auto overflow-hidden flex justify-between items-center">
+            <div className='px-4 lg:px-0 z-50  py-3 text-[#000] border border-b-[#00000] shadow-[0px 4px 4px 0px rgba(0, 0, 0, 0.25)] '   >
+                <div className=" md:mx-12 overflow-hidden flex justify-between items-center">
                     {/* Logo Section */}
                     <div>
                         <a href="#"><img src={logo} alt="Logo" className="max-h-36" /></a>
@@ -31,7 +31,7 @@ export default function Navbar() {
 
                         {/* mobileMenu icon  */}
                         <div className='block sm:hidden ' onClick={togglelMenu} >
-                            {open ? <RxCross1 /> : <FiAlignRight />}
+                            <FiAlignRight />
                         </div>
                         {/* singUp Button  */}
                         <div>
@@ -42,7 +42,8 @@ export default function Navbar() {
             </div>
             {/* mobilemenu  */}
             {open && (
-                <div className="sm:hidden bg-[#2AB6911A] w-1/2 animate-slideInRight fixed top-20 right-0 h-full">
+                <div className="sm:hidden bg-slate-500 w-1/2 z-50 animate-slideInRight fixed top-0 right-0 h-full  ">
+                    <RxCross1 className='ml-5 mt-5 ' onClick={togglelMenu} /> 
                     <ul className="flex flex-col items-start ml-5 font-bold gap-4 py-4 text-gray-700">
                         {navItems.map((item) => (
                             <li key={item} className="hover:text-[#2AB691] transition-colors duration-300">
@@ -52,7 +53,6 @@ export default function Navbar() {
                     </ul>
                 </div>
             )}
-
         </header>
     );
 }
